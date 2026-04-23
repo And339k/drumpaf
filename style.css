@@ -1,105 +1,208 @@
-/* ===== RESET ===== */
+/* RESET */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
 
-/* ===== BACKGROUND ===== */
+
+/* 🌈 BACKGROUND = expressive but secondary */
 body {
-  background: #d9d9d9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: Arial, sans-serif;
+   font-family: 'Permanent Marker', cursive;
+
+
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+
+   background:
+       radial-gradient(circle at 10% 20%, rgba(255,79,216,0.85), transparent 60%),
+       radial-gradient(circle at 80% 30%, rgba(0,229,255,0.8), transparent 60%),
+       radial-gradient(circle at 40% 80%, rgba(125,255,122,0.8), transparent 65%),
+       radial-gradient(circle at center, #ffb347, #6a5cff, #ff4f81);
+
+
+   overflow: hidden;
 }
 
-/* ===== MAIN DEVICE ===== */
-.device {
-  width: 420px;
-  background: #f2f2f2;
-  border-radius: 14px;
-  padding: 18px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+
+/* 🧱 MACHINE = floating device */
+.machine {
+   width: 1000px;
+   height: 550px;
+
+
+   background: rgba(15, 15, 25, 0.55);
+   backdrop-filter: blur(18px);
+
+
+   border-radius: 24px;
+   padding: 20px;
+
+
+   display: flex;
+   gap: 20px;
+
+
+   border: 1px solid rgba(255,255,255,0.2);
+
+
+   box-shadow:
+       0 50px 120px rgba(0,0,0,0.45);
 }
 
-/* ===== TOP BAR ===== */
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: #333;
+
+/* LEFT PANEL */
+.left {
+   width: 35%;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+
+
+   opacity: 0.9;
+
+
+   border-right: 1px solid rgba(255,255,255,0.15);
+   padding-right: 15px;
 }
 
-.brand {
-  font-weight: bold;
-}
 
-/* ===== SCREEN ===== */
+/* 🧠 SCREEN */
 .screen {
-  background: #111;
-  color: #00ff99;
-  padding: 14px;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 13px;
-  margin-bottom: 15px;
-  letter-spacing: 2px;
+   background: rgba(255,255,255,0.12);
+   border-radius: 14px;
+   padding: 15px;
+
+
+   color: white;
+
+
+   border: 1px solid rgba(255,255,255,0.25);
 }
 
-/* ===== GRID ===== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+
+/* 🎛 CONTROLS */
+.controls {
+   display: flex;
+   justify-content: space-around;
 }
 
-/* ===== PAD ===== */
+
+.knob {
+   width: 42px;
+   height: 42px;
+   border-radius: 50%;
+
+
+   background: linear-gradient(135deg, #ff4fd8, #00e5ff);
+
+
+   border: 1px solid rgba(255,255,255,0.35);
+}
+
+
+/* 📚 LIBRARY */
+.library {
+   background: rgba(255,255,255,0.1);
+   border-radius: 12px;
+
+
+   padding: 10px;
+   font-size: 0.75rem;
+
+
+   color: white;
+}
+
+
+/* 🌟 CANVAS = STRUCTURED SAMPLER GRID */
+.canvas {
+   width: 65%;
+   height: 100%;
+
+
+   border-radius: 26px;
+
+
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(4, 1fr);
+   gap: 12px;
+   padding: 14px;
+
+
+   /* soft glass surface */
+   background:
+       linear-gradient(145deg,
+           rgba(255,255,255,0.18),
+           rgba(255,255,255,0.08)
+       ),
+       radial-gradient(circle at top left, rgba(255,79,216,0.12), transparent 60%),
+       radial-gradient(circle at bottom right, rgba(0,229,255,0.1), transparent 60%);
+
+
+   border: 1px solid rgba(255,255,255,0.35);
+
+
+   box-shadow:
+       inset 0 0 30px rgba(255,255,255,0.12),
+       0 35px 90px rgba(0,0,0,0.35);
+
+
+   transform: translateY(-6px);
+}
+
+
+/* 🎴 PAD BASE (now GRID ITEMS instead of absolute) */
 .pad {
-  position: relative;
-  height: 75px;
-  border: none;
-  border-radius: 10px;
-  background: #e0e0e0;
-  box-shadow: 0 5px #bdbdbd;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
-  color: #222;
-  transition: 0.1s;
+   border-radius: 14px;
+
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+
+   font-size: 0.75rem;
+   color: white;
+
+
+   cursor: pointer;
+   transition: 0.2s;
+
+
+   border: 1px solid rgba(0,0,0,0.2);
+
+
+   backdrop-filter: blur(3px);
 }
 
-/* pad label small text */
-.pad span {
-  display: block;
-  font-size: 9px;
-  margin-top: 5px;
-  font-weight: normal;
-  opacity: 0.7;
-}
 
-/* hover */
 .pad:hover {
-  background: #d6d6d6;
+   transform: scale(1.05);
+   filter: brightness(1.2);
 }
 
-/* pressed effect (no JS needed) */
-.pad:active {
-  transform: translateY(4px);
-  box-shadow: 0 0 #bdbdbd;
-  background: #ffcc00;
+
+/* 🌈 COLOURS (kept expressive but now structured) */
+.p1, .p6, .p10 {
+   background: linear-gradient(135deg, #ff4fd8, #7a00ff);
 }
 
-/* ===== INFO STRIP ===== */
-.info {
-  margin-top: 15px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  color: #444;
-  padding-top: 10px;
-  border-top: 1px solid #ccc;
+
+.p2, .p7, .p11 {
+   background: linear-gradient(135deg, #00e5ff, #0066ff);
+}
+
+
+.p3, .p8, .p12 {
+   background: linear-gradient(135deg, #ffb347, #ff4f81);
+}
+
+
+.p4, .p5, .p9 {
+   background: linear-gradient(135deg, #7dff7a, #00ffaa);
 }
